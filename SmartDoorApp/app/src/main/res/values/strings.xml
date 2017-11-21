@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SmartDoorApp</string>
+    <string name="take_a_photo">Take A Photo</string>
+    <string name="unLock">UnLock</string>
+
+    <string name="speech_prompt">Say now....</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Tap on mic to speak</string>
+
+
+    <string name="TAKE_A_PHOTO_TF">ANDY WHAT DO YOU SEE</string>
+    <string name="GO_FORWARD">GO FORWARD</string>
+    <string name="GO_BACK">GO BACK</string>
+    <string name="TURN_LEFT">TURN LEFT</string>
+    <string name="TURN_RIGHT">TURN RIGHT</string>
+    <string name="STOP">STOP</string>
+
+    #Call ANDY
+    <string name="ANDY">ANDY</string>
+
+    #Feeling
+    <string name="I_AM_SAD">I AM SAD</string>
+    <string name="STOP_MUSIC">STOP MUSIC</string>
+
+    #LaserLight
+    <string name="TURN_LIGHT_ON">TURN LIGHT ON</string>
+    <string name="TURN_LIGHT_OFF">TURN LIGHT OFF</string>
+
+    //Tumperature And humity
+    <string name="temp_hum">TEMPERATURE IS IN HERE</string>
+</resources>
