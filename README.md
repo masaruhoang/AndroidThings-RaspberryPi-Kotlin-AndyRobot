@@ -34,3 +34,4 @@
   # GALLERY
   
   ![Alt text](https://andpythings.files.wordpress.com/2017/11/p_20171028_111341_fotor.jpg?w=1100 "Optional title")
+  ![Alt text](https://andpythings.files.wordpress.com/2017/11/23722708_1370285246432426_1901073835220660601_n.jpg?w=370&h= "Optional title")
