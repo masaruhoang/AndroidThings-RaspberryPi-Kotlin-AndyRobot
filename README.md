@@ -3,10 +3,10 @@
 # Java, Kotlin
 # MY BLOG: https://andpythings.wordpress.com
 
-WHAT IS ANDROID THINGS
+#WHAT IS ANDROID THINGS
      * Released late last year, Android Things is Google’s Android-based operating system for low-cost Internet of Things (IoT) devices such as the Rasberry Pi.
 
-ANDY ROBOT
+#ANDY ROBOT
    * Movementable through the console on the Smartphone  (Android).
    
    * Warning of the flame which can cause such as Fire or Gas.
@@ -31,6 +31,6 @@ ANDY ROBOT
 
    * Firebase is an indispensable part of Operation by linking between Things and Mobile modules.
    
-  GALLERY
+  #GALLERY
   
   ![Alt text](https://andpythings.files.wordpress.com/2017/11/p_20171028_111341_fotor.jpg?w=1100 "Optional title")
