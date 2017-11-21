@@ -18,7 +18,7 @@ class CloudVisionUtils {
         val TAG = CloudVisionUtils::class.java.simpleName
 
         //*****************GOOGLE CLOUD VISION IS IN HERE*************************
-        private val CLOUD_VISION_API_KEY = "AIzaSyBOKFypLFeLmw2RgYd_iiYcwCq7a_-0PNw"
+        private val CLOUD_VISION_API_KEY = "YOUR GOOGLE VISION KEY IS HERE"
 
         private val LABEL_DETECTION = "LABEL_DETECTION"
 
