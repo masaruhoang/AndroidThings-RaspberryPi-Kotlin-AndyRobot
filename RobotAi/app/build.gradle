@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'de.undercouch.download'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "dnhieuhuy.hoanghuy.robotai"
+        minSdkVersion 24
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
+    sourceSets {
+        main {
+            assets.srcDirs = ['./assets']
+        }
+    }
+}
+
+// Download model zip file into ../../assets directory
+// unzip it to demo project's own ./assets directory
+import de.undercouch.gradle.tasks.download.Download
+task downloadFile(type: Download) {
+    src 'https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip'
+    dest projectDir.toString() + '/../../assets/inception.zip'
+}
+task unzip(type: Copy) {
+    from zipTree(projectDir.toString() + '/../../assets/inception.zip')
+    into file(projectDir.toString() + '/assets')
+}
+unzip.dependsOn downloadFile
+
+project.afterEvaluate {
+    if (!(new File(projectDir.toString() + '/assets')).exists()) {
+        preBuild.dependsOn unzip
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compileOnly 'com.google.android.things:androidthings:+'
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    compile 'com.google.firebase:firebase-core:11.4.0'
+    compile 'com.google.firebase:firebase-database:11.4.0'
+    compile 'com.google.android.things.contrib:driver-ssd1306:0.3'
+    compile 'com.google.android.things.contrib:driver-button:0.3'
+
+    compile 'org.tensorflow:tensorflow-android:1.2.0'
+
+    compile 'com.google.apis:google-api-services-vision:v1-rev22-1.22.0'
+    compile 'com.google.api-client:google-api-client-android:1.22.0' exclude module: 'httpclient'
+    compile 'com.google.http-client:google-http-client-gson:1.22.0' exclude module: 'httpclient'
+
+
+    compile('com.google.apis:google-api-services-drive:v2-rev170-1.20.0') {
+        exclude module: 'httpclient' //by artifact name
+        exclude group: 'org.apache.httpcomponents' //by group
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient' //by both name and group
+    }
+
+    compile 'com.github.felHR85:UsbSerial:4.5'
+}
+
+configurations {
+    compile.exclude group: "org.apache.httpcomponents", module: "httpclient"
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-annotations:23.1.1'
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'

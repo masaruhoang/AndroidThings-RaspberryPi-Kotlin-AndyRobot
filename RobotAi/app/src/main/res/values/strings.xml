@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">RobotAi</string>
+
+    #Robot Name
+    <string name="andy">ANDY</string>
+
+    #Feeling
+    <string name="i_am_sad">I AM SAD</string>
+    <string name="turn_on_music">Oh, really??? I will play a your favorite soundtrack. Now let\'s relax, please</string>
+    <string name="how_did_you_felt">How did you felt....? This\'s relaxed music?Isn\'t it? </string>
+    
+    #Human Body Induction
+    <string name="who_are_you">Who are you???</string>
+    
+    #Warning Flame And Gas ,Smoke Sensor
+    <string name="flame_alert_fb">FLAME</string>
+    <string name="warning_flammable">Flame flame! Hurry up! Go out of here</string>
+
+    #Tumperature And humity
+    <string name="temp_hum">TEMPERATURE IS IN HERE</string>
+    <string name="temp_hum_speak">Temperature is </string>
+    <string name="temp_hum_speak2">Humity is </string>
+</resources>
