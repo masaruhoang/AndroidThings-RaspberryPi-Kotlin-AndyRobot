@@ -1,0 +1,104 @@
+{
+  "project_info": {
+    "project_number": "355467586997",
+    "firebase_url": "https://direct-raceway-141000.firebaseio.com",
+    "project_id": "direct-raceway-141000",
+    "storage_bucket": "direct-raceway-141000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355467586997:android:f7ac8dfe83d4a0da",
+        "android_client_info": {
+          "package_name": "dnhieuhuy.hoanghuy.robotai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355467586997-mt09v2p7l6vuq37tjmckjdmvrmsq9qan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJK2aNka8hGH0qLFsfGiqK1-8-AQhqQck"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355467586997:android:6884593baef624ed",
+        "android_client_info": {
+          "package_name": "dnhieuhuy.hoanghuy.smartdoorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355467586997-mt09v2p7l6vuq37tjmckjdmvrmsq9qan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJK2aNka8hGH0qLFsfGiqK1-8-AQhqQck"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355467586997:android:1c9f234bf9bff0c1",
+        "android_client_info": {
+          "package_name": "com.example.root.androidobjectdetection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355467586997-mt09v2p7l6vuq37tjmckjdmvrmsq9qan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJK2aNka8hGH0qLFsfGiqK1-8-AQhqQck"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
