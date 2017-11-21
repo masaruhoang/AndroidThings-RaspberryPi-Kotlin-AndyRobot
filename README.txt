@@ -1,5 +1,6 @@
 # AndroidThingsAndyRobot
 # Dwayne Hoang
+# Java, Kotlin
 # MY BLOG: https://andpythings.wordpress.com
 
 WHAT IS ANDROID THINGS?
