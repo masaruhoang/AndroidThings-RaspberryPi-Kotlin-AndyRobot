@@ -4,7 +4,7 @@
 ###### MY BLOG: https://andpythings.wordpress.com
 
 # WHAT IS ANDROID THINGS
-     * Released late last year, Android Things is Google’s Android-based operating system for low-cost Internet of Things (IoT) devices such as the Rasberry Pi.
+    * Released late last year, Android Things is Google’s Android-based operating system for low-cost Internet of Things (IoT) devices such as the Rasberry Pi.
 
 # ANDY ROBOT
    * Movementable through the console on the Smartphone  (Android).
