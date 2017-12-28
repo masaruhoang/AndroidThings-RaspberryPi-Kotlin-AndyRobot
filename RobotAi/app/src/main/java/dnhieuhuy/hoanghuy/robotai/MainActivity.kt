@@ -13,7 +13,6 @@ import dnhieuhuy.hoanghuy.robotai.humanbodyinduction.HumanInductionManager
 import dnhieuhuy.hoanghuy.robotai.laserlight.LaserLightManage
 import dnhieuhuy.hoanghuy.robotai.lcd.RobotOLED
 import dnhieuhuy.hoanghuy.robotai.tensorflowclassification.ImageClassification
-import dnhieuhuy.hoanghuy.robotai.NOTUSEultrasonicsensor.ObstacleSensor
 import dnhieuhuy.hoanghuy.robotai.usbserialarduino.UsbSerialArduinoManager
 import java.io.IOException
 
@@ -51,8 +50,6 @@ class MainActivity : Activity() {
     private var mChassis: ChassisDirectionManager? = null
     private var mFirebaseDirection: FirebaseDirectionData? = null
 
-    //HC-SR04
-    private var obstacleDetector: ObstacleSensor? = null
 
     //SSd1306 OLED
     private var mRobotOLED: RobotOLED? = null
@@ -75,7 +72,6 @@ class MainActivity : Activity() {
     override fun onDestroy() {
         super.onDestroy()
         ChassisDirectionManager.onCloseChassisPort()
-        obstacleDetector?.close()
         mRobotOLED?.close()
         imageClassification?.close()
         mHumanInduction?.close()

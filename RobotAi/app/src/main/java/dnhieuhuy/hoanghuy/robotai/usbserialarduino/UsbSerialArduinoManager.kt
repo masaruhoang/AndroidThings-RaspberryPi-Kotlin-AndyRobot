@@ -152,7 +152,7 @@ class UsbSerialArduinoManager// Detach events are sent as a system-wide broadcas
             else if (data.contains("|"))
             {
                 Sensors.mTemHum = data
-                mDatabase.getReference().child("RobotState").child("TempHum").setValue(data)
+                //mDatabase.getReference().child("RobotState").child("TempHum").setValue(data)
 
 
             }
@@ -166,7 +166,7 @@ class UsbSerialArduinoManager// Detach events are sent as a system-wide broadcas
                 Sensors.mUltraValue = data.substring(data.indexOf(",")+1,data.indexOf(".")).toInt()
                 if(Sensors.mUltraValue < 10) //<--- If Has Any Obstacle in front of Robot, immediately stop (10 = 10cm)
                 {
-                    ChassisDirectionManager.startMotor(true,true,true,true, "hasOstacle")
+                    ChassisDirectionManager.startMotor(true,true,true,true)
                 }
             }
             // Add whatever you want here

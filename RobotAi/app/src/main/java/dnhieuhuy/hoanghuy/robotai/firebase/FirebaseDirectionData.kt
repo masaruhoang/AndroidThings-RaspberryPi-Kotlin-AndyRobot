@@ -89,14 +89,17 @@ class FirebaseDirectionData
         val directionTakeAPhoto: String = dataSnapshot?.child("TakeAPhoto")?.getValue().toString()
         val directionTakeAPhotoClassification: String = dataSnapshot?.child("ImgClassifier")?.getValue().toString()
         val directionTurnOnLaser: String = dataSnapshot?.child("TurnOnLaser")?.getValue().toString()
-        val XYZ = dataSnapshot?.child("Accelerometer")?.getValue().toString()
         val pointXY = dataSnapshot?.child("PointXY")?.getValue(PointXY.javaClass)
+        val annFBDirection = dataSnapshot?.child("ANN")?.getValue().toString()
+
+
+        controlChassisWithANN(context, annFBDirection, rootDB!!)
 
         /**
          * POINTXY is coordinate of the Object, There is the position to control of the Pantilt positions.
          * */
         mUsbSerialArduino.writeToUsbSerial(pointXY!!.x, pointXY.y)
-        controlChassisWithObjectPosition(context, pointXY, rootDB!!)
+        controlChassisWithObjectPosition( pointXY)
 
         /**
          * If USTART -> Send Data to Firebase
@@ -104,18 +107,19 @@ class FirebaseDirectionData
          * */
         if(dataSnapshot.child("Ultrasonic")?.getValue().toString() == "USTART"
                 || dataSnapshot.child("Ultrasonic")?.getValue().toString() == "USTOP")
-            Sensors.mUltrasonicDistance =  if(dataSnapshot.child("Ultrasonic")?.getValue().toString() == "USTART") "USTART" else "USTOP"
+            Sensors.mUltrasonicDistance =  if(dataSnapshot.child("Ultrasonic")?.getValue()
+                                                .toString() == "USTART") "USTART" else "USTOP"
 
 
         Log.e(TAG, "FIREBASE: " + directionData)
         Log.e(TAG, "FIREBASE: " + directionTakeAPhoto)
-        Log.e(TAG, "FIREBASE: " + XYZ)
+        Log.e(TAG, "FIREBASE: " + annFBDirection)
 
 
         /**
          * Chassis Direction: Go Forwar/Back , Turn Left/Right (Motor DC)
          * */
-        directionOfMotor(context, directionData = directionData, rootDB = rootDB!!, xyz = XYZ)
+        directionOfMotor(context, directionData = directionData, rootDB = rootDB!!)
 
         /**
          * Take A Photo, Send and store Image Byte Array to Firebase Real Time DB
@@ -150,21 +154,37 @@ class FirebaseDirectionData
     /**
      * As Detected object 's coming out the camera screen
      * */
-    private fun controlChassisWithObjectPosition(context: Context, pointXY: PointXY?, rootDB: DatabaseReference) {
+    private fun controlChassisWithObjectPosition( pointXY: PointXY?) {
         if(pointXY?.y!! > 420)
         {
-            directionOfMotor(context, DIR_TURN_LEFT, rootDB = rootDB, xyz = "")
+           // directionOfMotor(context, DIR_TURN_LEFT, rootDB = rootDB, xyz = "")
         }else if(pointXY.y  < 25 && pointXY.y != 0)
         {
-            directionOfMotor(context, DIR_TURN_RIGHT, rootDB = rootDB, xyz = "")
+           // directionOfMotor(context, DIR_TURN_RIGHT, rootDB = rootDB, xyz = "")
         }
 
     }
 
     /**
+     * Artificial Neural NetWorld
+     * */
+    private fun controlChassisWithANN(context: Context, annFBDirection: String, rootDB: DatabaseReference)
+    {
+        when (annFBDirection)
+        {
+            DIR_STOP->{directionOfMotor(context, DIR_STOP, rootDB = rootDB)}
+            DIR_GO_FORWARD->{directionOfMotor(context, DIR_GO_FORWARD, rootDB = rootDB)}
+            DIR_GO_BACK->{directionOfMotor(context, DIR_GO_BACK, rootDB = rootDB)}
+            DIR_TURN_RIGHT->{directionOfMotor(context, DIR_TURN_RIGHT, rootDB = rootDB)}
+            DIR_TURN_LEFT->{directionOfMotor(context, DIR_TURN_LEFT, rootDB = rootDB) }
+        }
+    }
+
+
+    /**
      * Control Chassis Motor DC Direction
      * */
-    fun directionOfMotor(context: Context, directionData: String, rootDB: DatabaseReference, xyz: String?) {
+    fun directionOfMotor(context: Context, directionData: String, rootDB: DatabaseReference) {
         speechToTextFB.speechToTextFB(context, directionData, rootDB, mTtsEngine)
     }
 }

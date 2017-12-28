@@ -75,15 +75,14 @@ class ObstacleSensor(): AutoCloseable
                         //CLOSE
                         if(d <= 20)
                         {
-                            ChassisDirectionManager.startMotor(true, true, true, true, "Nothing")
+                            ChassisDirectionManager.startMotor(true, true, true, true)
                         }else
                         {
                             ChassisDirectionManager.startMotor(
                                     ChassisDirectionManager.stateDirectionMotor?.get(0)!!,
                                     ChassisDirectionManager.stateDirectionMotor?.get(1)!!,
                                     ChassisDirectionManager.stateDirectionMotor?.get(2)!!,
-                                    ChassisDirectionManager.stateDirectionMotor?.get(3)!!,
-                                    "hasOstacle"
+                                    ChassisDirectionManager.stateDirectionMotor?.get(3)!!
                             )
                         }
                     Log.d(TAG, "Distance: " + d)

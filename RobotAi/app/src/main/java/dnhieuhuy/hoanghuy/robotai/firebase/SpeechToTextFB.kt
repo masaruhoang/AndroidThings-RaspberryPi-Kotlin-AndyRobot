@@ -43,26 +43,35 @@ class SpeechToTextFB
     {
         when (directionData) {
             DIR_GO_FORWARD -> {
-                ChassisDirectionManager.startMotor(false, true, true, false, "hasOstacle")
+                ChassisDirectionManager.startMotor(false, true, true, false)
+                Thread.sleep(500)
+                ChassisDirectionManager.startMotor(true, true, true, true)
+                rootDB.child("ANN").setValue("STOP")
             }
             DIR_GO_BACK -> {
-                ChassisDirectionManager.startMotor(true, false, false, true,"hasOstacle")
+                ChassisDirectionManager.startMotor(true, false, false, true)
+                Thread.sleep(500)
+                ChassisDirectionManager.startMotor(true, true, true, true)
+                rootDB.child("ANN").setValue("STOP")
             }
             DIR_TURN_LEFT -> {
-                ChassisDirectionManager.startMotor(false, true, false, true, "hasOstacle")
-                Thread.sleep(100)
-                ChassisDirectionManager.startMotor(true, true, true, true, "hasOstacle")
-                rootDB.child("direction").setValue("STOP")
+                ChassisDirectionManager.startMotor(false, true, false, true)
+                Thread.sleep(160)
+                ChassisDirectionManager.startMotor(true, true, true, true)
+                rootDB.child("ANN").setValue("STOP")
             }
             DIR_TURN_RIGHT -> {
-                ChassisDirectionManager.startMotor(true, false, true, false, "hasOstacle")
-                Thread.sleep(100)
-                ChassisDirectionManager.startMotor(true, true, true, true, "hasOstacle")
-                rootDB.child("direction").setValue("STOP")
+                ChassisDirectionManager.startMotor(true, false, true, false)
+                Thread.sleep(160)
+                ChassisDirectionManager.startMotor(true, true, true, true)
+                rootDB.child("ANN").setValue("STOP")
             }
             DIR_STOP -> {
-                ChassisDirectionManager.startMotor(true, true, true, true, "hasOstacle")
+                ChassisDirectionManager.startMotor(true, true, true, true)
             }
+
+
+            //*************************************************************************************
 
             "ANDY" ->{
                 TtsSpeaker.speakYes(mTtsEngine)

@@ -33,7 +33,7 @@ class ChassisDirectionManager
         private var B_IB: Boolean = true
 
         var stateDirectionMotor: List<Boolean>? = null
-        private val INTERVAL_MS = 5000
+        private val INTERVAL_MS = 1000
 
         /**
          * Handler Thread what 'll help your project to do not block UI
@@ -93,17 +93,12 @@ class ChassisDirectionManager
          * STOP -> true, true, true, true
          *
          * */
-        fun startMotor(a_ia: Boolean, a_ib: Boolean, b_ia: Boolean, b_ib: Boolean, state: String) {
+        fun startMotor(a_ia: Boolean, a_ib: Boolean, b_ia: Boolean, b_ib: Boolean) {
             try {
-                if(state == "hasOstacle"){
-                    stateDirectionMotor = listOf(a_ia, a_ib, b_ia, b_ib)
-                }
-
                 A_IA = a_ia
                 A_IB = a_ib
                 B_IA = b_ia
                 B_IB = b_ib
-                Thread.sleep(100)
                 mHandlerMotor!!.postDelayed(mMotorDCRunnable, INTERVAL_MS.toLong())
             } catch (ex: IOException) {
                 Log.e(TAG, "Error on PeripheralIO API", ex)

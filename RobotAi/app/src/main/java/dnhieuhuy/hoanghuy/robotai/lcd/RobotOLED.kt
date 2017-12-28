@@ -67,9 +67,14 @@ class RobotOLED: AutoCloseable
     }
 
     private fun drawStringCentered(textDisplay: String, font: Font, y: Int, on: Boolean) {
+        try{
         val strSizeX: Int = textDisplay.length * font.outterWidth
         val x: Int = (mScreen?.lcdWidth!! - strSizeX)/ 2
         drawString(textDisplay, font, x, y, on)
+        }catch(ex: Exception)
+        {
+            ex.printStackTrace()
+        }
     }
 
     private fun drawString(textDisplay: String, font: Font, x: Int, y: Int, on: Boolean) {
